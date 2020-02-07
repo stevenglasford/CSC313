@@ -1,0 +1,11 @@
+#header{
+  font-family: 'Zhi Mang Xing', cursive;
+}
+
+#para{
+  font-family: 'Kelly Slab', cursive;
+  border-style: solid;
+  border-color: #ff4738;
+  border-width: 5px 10px 3px 20px;
+  padding-left: 20px;
+}

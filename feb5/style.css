@@ -1,0 +1,22 @@
+p{
+  color: #9b26cc;
+  text-align: center;
+}
+
+#para1 {
+  border: 2px solid cornflowerblue;
+  text-align: right;
+  color: red;
+}
+
+.fruit{
+  color: #3ae2ff;
+}
+
+.vegetable{
+  color:deeppink;
+}
+
+body{
+  background-color: blanchedalmond;
+}
