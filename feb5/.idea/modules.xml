@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/../Feb14/.idea/Feb14.iml" filepath="$PROJECT_DIR$/../Feb14/.idea/Feb14.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../feb10/.idea/feb10.iml" filepath="$PROJECT_DIR$/../feb10/.idea/feb10.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/feb5.iml" filepath="$PROJECT_DIR$/.idea/feb5.iml" />
+      <module fileurl="file://$USER_HOME$/Downloads/practice_bootstrap/.idea/practice_bootstrap.iml" filepath="$USER_HOME$/Downloads/practice_bootstrap/.idea/practice_bootstrap.iml" />
       <module fileurl="file://$PROJECT_DIR$/../untitled/.idea/untitled.iml" filepath="$PROJECT_DIR$/../untitled/.idea/untitled.iml" />
     </modules>
   </component>
