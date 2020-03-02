@@ -4,4 +4,5 @@
 <div class="container">
   <input type="text" [(ngModel)]="name">
   <p>{{name}}</p>
+  <button class="btn btn-primary" [disabled]="name == ''">Submit</button>
 </div>
