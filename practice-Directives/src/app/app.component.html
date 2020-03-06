@@ -1,0 +1,17 @@
+<div>
+  <button (click)="onClick()">Display Details</button>
+</div>
+
+<div>
+  <p *ngIf="display">Secret Paragraph</p>
+</div>
+
+<div>
+  <p>Number of times the button has been clicked: {{count}}</p>
+</div>
+
+<div>
+  <p *ngFor="let x of logCount"
+      [ngStyle]="{'background-color' : x > 4 ? 'blue' : 'transparent'}"
+      [ngClass]="{'color' : x > 4}">Hello World</p>
+</div>
