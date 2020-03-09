@@ -1,0 +1,14 @@
+<div class="top-menu">
+
+  <img class="logo" src="https://www.ndsu.edu/fileadmin/www.ur.ndsu.edu/logo_usage/NDSU.oneline.jpg">
+  
+</div>
+
+<div class="courses">
+  <!-- including custom tags for course-card component to make them child of AppComponent-->
+  <!-- Property binding to pass the value of parent component (AppComponent) variables 
+    to child Component variables -->
+  <app-course-card *ngFor = 'let c of courseList' [course] = "c"></app-course-card>
+  <!-- <app-course-card [course] = "csci161"></app-course-card>
+  <app-course-card [course] = "csci213"></app-course-card> -->
+</div>
