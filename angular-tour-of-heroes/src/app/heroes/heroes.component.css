@@ -71,3 +71,37 @@ button.delete {
   background-color: gray !important;
   color: white;
 }
+
+/*Color changing background*/
+img {
+  width: 50%;
+  height: auto;
+}
+
+body {
+  animation: 10000ms ease-in-out infinite color-change;
+}
+
+@keyframes color-change {
+  0% {
+    background-color: rgb(0, 238, 255);
+  }
+  20% {
+    background-color: rgb(100, 42, 0);
+  }
+  40% {
+    background-color: rgb(236, 72, 182);
+  }
+  60% {
+    background-color: goldenrod;
+  }
+  80% {
+    background-color: peachpuff;
+  }
+  100% {
+    background-color: rgb(0, 238, 255);
+  }
+}
+div {
+background-image: url(https://subtlepatterns.com/patterns/kindajean.png);
+}

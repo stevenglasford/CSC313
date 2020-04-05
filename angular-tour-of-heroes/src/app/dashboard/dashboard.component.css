@@ -24,6 +24,7 @@
   }
   .grid {
     margin: 0;
+    transform: skewX(13deg);
   }
   .col-1-4 {
     width: 25%;
@@ -40,13 +41,42 @@
   .module:hover {
     background-color: #eee;
     cursor: pointer;
-    color: #607d8b;
+    -webkit-animation: colorchangetext 10s infinite alternate;/*#607d8b;*/
   }
+
+  
+  @-webkit-keyframes colorchangetext{
+    0% {
+      color: blue;
+    }
+
+    20% {
+      color: lightblue;
+    }
+
+    40% {
+      color: purple;
+    }
+
+    60% {
+      color: red;
+    }
+
+    80% {
+      color: orange;
+    }
+
+    100% {
+      color: skyblue;
+    }
+  }
+
   .grid-pad {
     padding: 10px 0;
   }
   .grid-pad > [class*='col-']:last-of-type {
     padding-right: 20px;
+    
   }
   @media (max-width: 600px) {
     .module {
