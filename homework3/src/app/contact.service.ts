@@ -40,7 +40,6 @@ export class ContactService {
     // }
 
     getContacts(){
-        
         return this.http.get<Contact[]>('https://studentdata-5330a.firebaseio.com/homework3/' + 
         'contact.json')
         .pipe(map(responseData => {
@@ -52,7 +51,5 @@ export class ContactService {
             }
             return {contactArray, keyArray};
         }))
-    }
-
-
+    } 
 }

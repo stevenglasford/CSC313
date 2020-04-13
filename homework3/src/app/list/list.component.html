@@ -3,18 +3,48 @@
     <div class="class-header">
         <h4>Name: {{contact.firstName}} {{contact.lastName}}</h4>
     </div>
-    <!--<a routerLink="/detail/{{contact.id}}">-->
-        <div class="card-body">
-            <ul>{{contact.id}}</ul>
-            <ul>First Name: {{contact.firstName}}</ul>
-            <ul>Last Name: {{contact.lastName}}</ul>
-            <ul>Phone Number: {{contact.phone}}</ul>
+    <div class="card-body">
+        <ul>{{contact.id}}</ul>
+        <ul>First Name: {{contact.firstName}}</ul>
+        <ul>Last Name: {{contact.lastName}}</ul>
+        <ul>Phone Number: {{contact.phone}}</ul>
+    </div>
+
+    <div class="container">
+        <p> Please add a contact. </p>
+        <div class="card">
+            <div class="card-body">
+                <div class="form-group">
+                    <input 
+                        class="form-control" 
+                        type="text" 
+                        [(ngModel)]="cFirstName"
+                        placeholder="{{contact.firstName}}"
+                    >
+                </div>
+                <div class="form-group">
+                    <input 
+                        class="form-control" 
+                        type="text" 
+                        [(ngModel)]="cLastName" 
+                        placeholder="{{contact.lastName}}"
+                    >
+                </div>
+                <div class="form-group">
+                    <input 
+                        class="form-control" 
+                        type="text" 
+                        [(ngModel)]="cPhone" 
+                        placeholder="{{contact.phone}}"
+                    >
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-primary" (click)="updateContact(contact,contact.id,contact.firstName,contact.lastName,contact.phone)">Update Contact</button>
+                </div>
+            </div>
         </div>
-    <!--</a>-->
+    </div>
+
     <button class="btn btn-primary" (click)="delete(contact)">Delete</button>
-    <!--TODO: send data to the add a hero page with all of the 
-        current information of the specific contact
-        then on submit delete the old contact and replace with a new
-        contact then bring back contact list page-->
-    <button class="btn btn-primary">Edit</button>
+     
 </div>

@@ -10,14 +10,12 @@ import { ListComponent } from './list/list.component';
 
 import { RouterModule, Routes } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
-import { EditComponent } from './edit/edit.component';
-import { ContactDetailComponent } from './contact-detail/contact-detail.component';
 
 
 
 const routes: Routes = [
   { path: 'list', component: ListComponent },
-  { path: 'add', component: AddComponent },
+  { path: 'add', component: AddComponent }, 
 ];
 
 @NgModule({
@@ -25,8 +23,6 @@ const routes: Routes = [
     AppComponent,
     AddComponent,
     ListComponent,
-    EditComponent,
-    ContactDetailComponent
   ],
   imports: [
     BrowserModule,

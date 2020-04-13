@@ -20,6 +20,10 @@ export class ListComponent implements OnInit{
     phone: 0, 
     id: ''
   };
+  cFirstName: string;
+  cLastName: string;
+  cPhone: number;
+  cId: string;
 
   keys: string[] = [];
   tContact: ListContact;
@@ -33,11 +37,34 @@ export class ListComponent implements OnInit{
     this.fetchData();
   }
 
+  updateContact(oldContact: ListContact,
+                oldId: string, 
+                oldFirstName: string, 
+                oldLastName: string,
+                oldPhone: number){
+    //this.delete(oldContact);
+    //if the following data points are not set then 
+    //set them to old values contained in the oldContact
+    //create a new contact
+
+    const newContact: Contact = {
+      firstName: this.cFirstName,
+      lastName: this.cLastName,
+      phone: this.cPhone,
+    }
+    //add the contact and submit the data to the console for debugging
+    this.cntService.addContact(newContact).subscribe(data => {
+      console.log(data);
+    })
+    this.delete(oldContact);
+    //get rid of that shitty old contact
+
+
+  }
+
   delete(contact: ListContact){
-    
     //add the contact and submit the data to the console for debugging
     this.cntService.deleteContact(contact).subscribe(data => {
-      console.log(data);
       this.fetchData();
     })
   }
@@ -48,14 +75,15 @@ export class ListComponent implements OnInit{
       this.keys = data.keyArray;
       let i: number = 0;
       while(i < this.contacts.length){
-        this.tempContact.phone = this.contacts[i].phone;
-        this.tempContact.firstName = this.contacts[i].firstName;
-        this.tempContact.lastName = this.contacts[i].lastName;
-        this.tempContact.id = this.keys[i];
-        this.listContacts.push(this.tempContact);
+        const newContact: ListContact = {
+          firstName: data.contactArray[i].firstName,
+          lastName: data.contactArray[i].lastName,
+          phone: data.contactArray[i].phone,
+          id: data.keyArray[i],
+        }
+        this.listContacts.push(newContact);
         i++;
       }
-      
     }) 
   }
 }
