@@ -1,10 +1,10 @@
 <p>Contacts List.</p>
-<div class="card" *ngFor="let contact of contacts">
+<div class="card" *ngFor="let contact of listContacts">
     <div class="class-header">
         <h4>Name: {{contact.firstName}} {{contact.lastName}}</h4>
     </div>
     <div class="card-body">
-        <ul>{{contact}}</ul>
+        <ul>{{contact.id}}</ul>
         <ul>First Name: {{contact.firstName}}</ul>
         <ul>Last Name: {{contact.lastName}}</ul>
         <ul>Phone Number: {{contact.phone}}</ul>
