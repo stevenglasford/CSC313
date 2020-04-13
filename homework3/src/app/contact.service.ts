@@ -3,6 +3,7 @@ import {Contact} from './contact';
 import {ListContact} from './listContact';
 import {HttpClient} from '@angular/common/http';
 import {map} from 'rxjs/operators';
+import { Observable } from 'rxjs';
 
 @Injectable({
     providedIn: 'root'
@@ -10,12 +11,24 @@ import {map} from 'rxjs/operators';
 
 export class ContactService {
     constructor(private http: HttpClient){}
+    private contactsUrl = 'https://studentdata-5330a.firebaseio.com/homework3/contact';
 
     addContact(newCnt: Contact){
         return this.http.post('https://studentdata-5330a.firebaseio.com/homework3/'+
         'contact.json', newCnt);
-        console.log(newCnt);
     }
+
+    deleteContact(contact: ListContact): Observable<ListContact>{
+        const id:string = contact.id;
+        const url = `${this.contactsUrl}/${id}.json`;
+        return this.http.delete<ListContact>(url);
+        
+    }
+
+    // deleteContactEntry(delCnt: string){
+    //     //return this.http.delete('https://studentdata-5330a.firebaseio.com/homework3/contact/' +
+    //     //   delCnt + '.json')
+    // }
 
     getContacts(){
         
@@ -32,7 +45,5 @@ export class ContactService {
         }))
     }
 
-    deleteContact(delCnt: Contact){
 
-    }
 }

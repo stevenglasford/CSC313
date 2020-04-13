@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {ContactService} from '../contact.service';
 import {ListContact} from '../listContact';
 import {Contact} from '../contact';
+import {HttpClient} from '@angular/common/http';
 
 
 @Component({
@@ -17,13 +18,27 @@ export class ListComponent implements OnInit{
     firstName: '', 
     lastName: '', 
     phone: 0, 
-    id: ''};
-  keys: string[] = [];
+    id: ''
+  };
 
-  constructor(private cntService: ContactService) { }
+  keys: string[] = [];
+  tContact: ListContact;
+
+  constructor(
+    private cntService: ContactService,
+    private http: HttpClient
+  ) { }
 
   ngOnInit(){
     this.fetchData();
+  }
+
+  delete(contact: ListContact){
+    
+    //add the contact and submit the data to the console for debugging
+    this.cntService.deleteContact(contact).subscribe(data => {
+      console.log(data);
+    })
   }
 
   fetchData(){
