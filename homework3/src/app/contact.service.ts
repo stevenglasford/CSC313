@@ -25,6 +25,15 @@ export class ContactService {
         
     }
 
+    updateContact(contact: ListContact){
+        const newContact: Contact = {
+            firstName: contact.firstName,
+            lastName: contact.lastName,
+            phone: contact.phone
+        }
+        this.addContact(newContact);
+        this.deleteContact(contact);
+    }
     // deleteContactEntry(delCnt: string){
     //     //return this.http.delete('https://studentdata-5330a.firebaseio.com/homework3/contact/' +
     //     //   delCnt + '.json')

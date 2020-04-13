@@ -3,12 +3,18 @@
     <div class="class-header">
         <h4>Name: {{contact.firstName}} {{contact.lastName}}</h4>
     </div>
-    <div class="card-body">
-        <ul>{{contact.id}}</ul>
-        <ul>First Name: {{contact.firstName}}</ul>
-        <ul>Last Name: {{contact.lastName}}</ul>
-        <ul>Phone Number: {{contact.phone}}</ul>
-    </div>
+    <!--<a routerLink="/detail/{{contact.id}}">-->
+        <div class="card-body">
+            <ul>{{contact.id}}</ul>
+            <ul>First Name: {{contact.firstName}}</ul>
+            <ul>Last Name: {{contact.lastName}}</ul>
+            <ul>Phone Number: {{contact.phone}}</ul>
+        </div>
+    <!--</a>-->
     <button class="btn btn-primary" (click)="delete(contact)">Delete</button>
-     
+    <!--TODO: send data to the add a hero page with all of the 
+        current information of the specific contact
+        then on submit delete the old contact and replace with a new
+        contact then bring back contact list page-->
+    <button class="btn btn-primary">Edit</button>
 </div>
