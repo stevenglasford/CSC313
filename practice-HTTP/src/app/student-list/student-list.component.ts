@@ -17,7 +17,7 @@ export class StudentListComponent implements OnInit{
   students: Student[] = [];
   nextID = 0;
   sName: string;
-  sAge: number
+  sAge: number;
 
   constructor(private stdService: StudentService){
 

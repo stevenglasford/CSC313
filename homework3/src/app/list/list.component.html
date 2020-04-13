@@ -1,0 +1,16 @@
+<p>Contacts List.</p>
+<div class="card" *ngFor="let contact of contacts">
+    <div class="class-header">
+        <h4>Name: {{contact.firstName}} {{contact.lastName}}</h4>
+    </div>
+    <div class="card-body">
+        <ul>First Name: {{contact.firstName}}</ul>
+        <ul>Last Name: {{contact.lastName}}</ul>
+        <ul>Phone Number: {{contact.phone}}</ul>
+    </div>
+    <!--TODO: add function to edit and delete an entry
+    <div class="form-group">
+        <button class="btn btn-primary" (click)="deleteContact()">Delete</button>
+    </div>
+    -->
+</div>
