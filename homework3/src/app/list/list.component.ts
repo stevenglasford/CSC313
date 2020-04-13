@@ -38,6 +38,7 @@ export class ListComponent implements OnInit{
     //add the contact and submit the data to the console for debugging
     this.cntService.deleteContact(contact).subscribe(data => {
       console.log(data);
+      this.fetchData();
     })
   }
 
