@@ -48,11 +48,13 @@ export class ListComponent implements OnInit{
       this.keys = data.keyArray;
       let i: number = 0;
       while(i < this.contacts.length){
-        this.tempContact.phone = this.contacts[i].phone;
-        this.tempContact.firstName = this.contacts[i].firstName;
-        this.tempContact.lastName = this.contacts[i].lastName;
-        this.tempContact.id = this.keys[i];
-        this.listContacts.push(this.tempContact);
+        const newContact: ListContact = {
+          firstName: data.contactArray[i].firstName,
+          lastName: data.contactArray[i].lastName,
+          phone: data.contactArray[i].phone,
+          id: data.keyArray[i],
+        }
+        this.listContacts.push(newContact);
         i++;
       }
       
