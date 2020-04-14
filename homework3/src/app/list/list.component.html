@@ -1,17 +1,20 @@
-<p>Contacts List.</p>
+<h3>Contacts List.</h3>
 <div class="card" *ngFor="let contact of listContacts">
     <div class="class-header">
         <h4>Name: {{contact.firstName}} {{contact.lastName}}</h4>
     </div>
     <div class="card-body">
-        <ul>{{contact.id}}</ul>
         <ul>First Name: {{contact.firstName}}</ul>
         <ul>Last Name: {{contact.lastName}}</ul>
         <ul>Phone Number: {{contact.phone}}</ul>
     </div>
 
-    <div class="container">
-        <p> Please add a contact. </p>
+    <button class="btn btn-primary" (click)="delete(contact)">Delete</button>
+    <button class="btn btn-primary" (click)="toggle()">{{buttonName}}</button>
+
+    <div *ngIf="show" class="container">
+        <p> Please edit the contact. </p>
+        <h5> All fields must be set, otherwise null will be assumed.</h5>
         <div class="card">
             <div class="card-body">
                 <div class="form-group">
@@ -45,6 +48,6 @@
         </div>
     </div>
 
-    <button class="btn btn-primary" (click)="delete(contact)">Delete</button>
+    
      
 </div>

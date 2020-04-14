@@ -3,6 +3,9 @@ import {ContactService} from '../contact.service';
 import {ListContact} from '../listContact';
 import {Contact} from '../contact';
 import {HttpClient} from '@angular/common/http';
+import { variable } from '@angular/compiler/src/output/output_ast';
+import { trigger,state, group, style,transition,animate,keyframes,query,stagger } from '@angular/animations';
+
 
 
 @Component({
@@ -24,6 +27,9 @@ export class ListComponent implements OnInit{
   cLastName: string;
   cPhone: number;
   cId: string;
+  show = false;
+  buttonName = 'Show Edit';
+  hide: any;
 
   keys: string[] = [];
   tContact: ListContact;
@@ -35,6 +41,16 @@ export class ListComponent implements OnInit{
 
   ngOnInit(){
     this.fetchData();
+  }
+
+  toggle(){
+    this.show = !this.show;
+    if(this.show){
+      this.buttonName = 'Hide Edit';
+    } else {
+      this.buttonName = 'Show Edit';
+    }
+
   }
 
   updateContact(oldContact: ListContact,
