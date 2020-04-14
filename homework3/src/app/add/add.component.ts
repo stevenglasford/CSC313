@@ -10,8 +10,9 @@ import {Contact} from '../contact';
 export class AddComponent implements OnInit {
   cFirstName: string;
   cLastName: string;
-  cPhone: number;
+  cPhone: string;
   cId: string;
+  show: boolean = false;
 
   constructor(private cntService: ContactService) { }
 
@@ -27,7 +28,9 @@ export class AddComponent implements OnInit {
     //add the contact and submit the data to the console for debugging
     this.cntService.addContact(newContact).subscribe(data => {
       console.log(data);
+      
     })
+    
   }
 
 }

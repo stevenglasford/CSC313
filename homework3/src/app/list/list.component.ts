@@ -3,9 +3,6 @@ import {ContactService} from '../contact.service';
 import {ListContact} from '../listContact';
 import {Contact} from '../contact';
 import {HttpClient} from '@angular/common/http';
-import { variable } from '@angular/compiler/src/output/output_ast';
-import { trigger,state, group, style,transition,animate,keyframes,query,stagger } from '@angular/animations';
-
 
 
 @Component({
@@ -20,16 +17,17 @@ export class ListComponent implements OnInit{
   tempContact: ListContact = {
     firstName: '', 
     lastName: '', 
-    phone: 0, 
+    phone: '', 
     id: ''
   };
   cFirstName: string;
   cLastName: string;
-  cPhone: number;
+  cPhone: string;
   cId: string;
-  show = false;
+  show: string = '';
   buttonName = 'Show Edit';
   hide: any;
+  public selectedContact: string = null;
 
   keys: string[] = [];
   tContact: ListContact;
@@ -43,21 +41,21 @@ export class ListComponent implements OnInit{
     this.fetchData();
   }
 
-  toggle(){
-    this.show = !this.show;
-    if(this.show){
-      this.buttonName = 'Hide Edit';
-    } else {
-      this.buttonName = 'Show Edit';
-    }
+  toggle = {};
+  // toggle(contactId: string){
+  //   if(contactId == this.show){
+  //     this.buttonName = 'Hide Edit';
+  //   } else {
+  //     this.buttonName = 'Show Edit';
+  //   }
 
-  }
+  // }
 
   updateContact(oldContact: ListContact,
                 oldId: string, 
                 oldFirstName: string, 
                 oldLastName: string,
-                oldPhone: number){
+                oldPhone: string){
     //this.delete(oldContact);
     //if the following data points are not set then 
     //set them to old values contained in the oldContact

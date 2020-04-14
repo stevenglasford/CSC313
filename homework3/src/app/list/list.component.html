@@ -10,9 +10,10 @@
     </div>
 
     <button class="btn btn-primary" (click)="delete(contact)">Delete</button>
-    <button class="btn btn-primary" (click)="toggle()">{{buttonName}}</button>
+    <button class="btn btn-primary" (click)="selectedContact=contact.id">Edit</button>
 
-    <div *ngIf="show" class="container">
+
+    <div *ngIf="selectedContact==contact.id" class="container">
         <p> Please edit the contact. </p>
         <h5> All fields must be set, otherwise null will be assumed.</h5>
         <div class="card">
@@ -43,11 +44,9 @@
                 </div>
                 <div class="form-group">
                     <button class="btn btn-primary" (click)="updateContact(contact,contact.id,contact.firstName,contact.lastName,contact.phone)">Update Contact</button>
+                    <button class="btn btn-primary" (click)="selectedContact=null">Close Edit field</button>
                 </div>
             </div>
         </div>
-    </div>
-
-    
-     
+    </div>     
 </div>
