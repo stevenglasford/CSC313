@@ -18,9 +18,8 @@ export class ContactService {
         'contact.json', newCnt);
     }
 
-    deleteContact(contact: ListContact): Observable<ListContact>{
-        const id:string = contact.id;
-        const url = `${this.contactsUrl}/${id}.json`;
+    deleteContact(contactId: string): Observable<ListContact>{
+        const url = `${this.contactsUrl}/${contactId}.json`;
         return this.http.delete<ListContact>(url);
         
     }
@@ -32,7 +31,7 @@ export class ContactService {
             phone: contact.phone
         }
         this.addContact(newContact);
-        this.deleteContact(contact);
+        this.deleteContact(contact.id);
     }
     // deleteContactEntry(delCnt: string){
     //     //return this.http.delete('https://studentdata-5330a.firebaseio.com/homework3/contact/' +

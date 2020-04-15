@@ -2,9 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import {ContactService} from '../contact.service';
 import {ListContact} from '../listContact';
 import {Contact} from '../contact';
-import {HttpClient} from '@angular/common/http';
-import { Router } from '@angular/router';
-
 
 @Component({
   selector: 'app-list',
@@ -28,15 +25,14 @@ export class ListComponent implements OnInit{
   show: string = '';
   buttonName = 'Show Edit';
   hide: any;
+  deletedContact: string = '';
   public selectedContact: string = null;
 
   keys: string[] = [];
   tContact: ListContact;
 
   constructor(
-    private cntService: ContactService,
-    private http: HttpClient,
-    private router: Router
+    private cntService: ContactService
   ) { }
 
   ngOnInit(): void {
@@ -72,17 +68,17 @@ export class ListComponent implements OnInit{
     this.cntService.addContact(newContact).subscribe(data => {
       console.log(data);
     })
-    this.delete(oldContact);
+    this.delete(oldContact.id);
     //get rid of that shitty old contact
 
 
   }
 
-  delete(contact: ListContact){
+  delete(contact: string){
     //add the contact and submit the data to the console for debugging
     this.cntService.deleteContact(contact).subscribe(() => {
       //reload the page and get all of the data on reload
-      window.location.reload();
+      this.fetchData();
     })
     
   }
@@ -103,6 +99,5 @@ export class ListComponent implements OnInit{
         i++;
       }
     }) 
-    return this.listContacts;
   }
 }

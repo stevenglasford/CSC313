@@ -1,4 +1,5 @@
 <h3>Contacts List.</h3>
+
 <div class="card" *ngFor="let contact of listContacts">
     <div class="class-header">
         <h4>Name: {{contact.firstName}} {{contact.lastName}}</h4>
@@ -9,10 +10,13 @@
         <ul>Phone Number: {{contact.phone}}</ul>
     </div>
 
-    <button class="btn btn-primary" (click)="delete(contact)">Delete</button>
+    <button class="btn btn-primary" (click)="delete(contact.id); deletedContact=contact.id">Delete</button>
     <button class="btn btn-primary" (click)="selectedContact=contact.id">Edit</button>
-
-
+    
+    <div *ngIf="deletedContact==contact.id" style="background-color: lightpink;">
+        <p>Please reload the page to update the list of contacts</p>
+    </div>
+    
     <div *ngIf="selectedContact==contact.id" class="container">
         <p> Please edit the contact. </p>
         <h5> All fields must be set, otherwise null will be assumed.</h5>
