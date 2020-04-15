@@ -3,6 +3,7 @@ import {ContactService} from '../contact.service';
 import {ListContact} from '../listContact';
 import {Contact} from '../contact';
 import {HttpClient} from '@angular/common/http';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -34,10 +35,11 @@ export class ListComponent implements OnInit{
 
   constructor(
     private cntService: ContactService,
-    private http: HttpClient
+    private http: HttpClient,
+    private router: Router
   ) { }
 
-  ngOnInit(){
+  ngOnInit(): void {
     this.fetchData();
   }
 
@@ -78,9 +80,11 @@ export class ListComponent implements OnInit{
 
   delete(contact: ListContact){
     //add the contact and submit the data to the console for debugging
-    this.cntService.deleteContact(contact).subscribe(data => {
-      this.fetchData();
+    this.cntService.deleteContact(contact).subscribe(() => {
+      //reload the page and get all of the data on reload
+      window.location.reload();
     })
+    
   }
 
   fetchData(){
@@ -99,5 +103,6 @@ export class ListComponent implements OnInit{
         i++;
       }
     }) 
+    return this.listContacts;
   }
 }
