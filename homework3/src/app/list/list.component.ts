@@ -16,11 +16,13 @@ export class ListComponent implements OnInit{
     firstName: '', 
     lastName: '', 
     phone: '', 
+    mail: '',
     id: ''
   };
   cFirstName: string;
   cLastName: string;
   cPhone: string;
+  cMail: string;
   cId: string;
 
   buttonName = 'Show Edit';
@@ -44,6 +46,7 @@ export class ListComponent implements OnInit{
       firstName: this.cFirstName,
       lastName: this.cLastName,
       phone: this.cPhone,
+      mail: this.cMail
     }
     //add the contact and submit the data to the console for debugging
     this.cntService.addContact(newContact).subscribe(data => {
@@ -79,6 +82,7 @@ export class ListComponent implements OnInit{
           firstName: data.contactArray[i].firstName,
           lastName: data.contactArray[i].lastName,
           phone: data.contactArray[i].phone,
+          mail: data.contactArray[i].mail,
           id: data.keyArray[i],
         }
         this.listContacts.push(newContact);

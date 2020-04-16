@@ -28,7 +28,8 @@ export class ContactService {
         const newContact: Contact = {
             firstName: contact.firstName,
             lastName: contact.lastName,
-            phone: contact.phone
+            phone: contact.phone,
+            mail: contact.mail
         }
         this.addContact(newContact);
         this.deleteContact(contact.id);

@@ -8,6 +8,7 @@
         <ul>First Name: {{contact.firstName}}</ul>
         <ul>Last Name: {{contact.lastName}}</ul>
         <ul>Phone Number: {{contact.phone}}</ul>
+        <ul>Email: {{contact.mail}}</ul>
     </div>
 
     <button class="btn btn-primary" (click)="delete(contact.id, i)">Delete</button>
@@ -40,6 +41,14 @@
                         type="text" 
                         [(ngModel)]="cPhone" 
                         placeholder="{{contact.phone}}"
+                    >
+                </div>
+                <div class="form-group">
+                    <input 
+                        class="form-control" 
+                        type="text" 
+                        [(ngModel)]="cMail" 
+                        placeholder="{{contact.mail}}"
                     >
                 </div>
                 <div class="form-group">

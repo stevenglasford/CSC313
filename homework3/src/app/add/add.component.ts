@@ -12,6 +12,7 @@ export class AddComponent implements OnInit {
   cLastName: string;
   cPhone: string;
   cId: string;
+  cMail: string;
   show: boolean = false;
 
   constructor(private cntService: ContactService) { }
@@ -24,11 +25,11 @@ export class AddComponent implements OnInit {
       firstName: this.cFirstName,
       lastName: this.cLastName,
       phone: this.cPhone,
+      mail: this.cMail,
     }
     //add the contact and submit the data to the console for debugging
     this.cntService.addContact(newContact).subscribe(data => {
       console.log(data);
-      
     })
     
   }
