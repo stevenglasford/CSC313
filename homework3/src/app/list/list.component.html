@@ -1,6 +1,6 @@
 <h3>Contacts List.</h3>
 
-<div class="card" *ngFor="let contact of listContacts">
+<div class="card" *ngFor="let contact of listContacts; let i = index" [attr.data-index]="i">
     <div class="class-header">
         <h4>Name: {{contact.firstName}} {{contact.lastName}}</h4>
     </div>
@@ -10,12 +10,8 @@
         <ul>Phone Number: {{contact.phone}}</ul>
     </div>
 
-    <button class="btn btn-primary" (click)="delete(contact.id); deletedContact=contact.id">Delete</button>
+    <button class="btn btn-primary" (click)="delete(contact.id, i)">Delete</button>
     <button class="btn btn-primary" (click)="selectedContact=contact.id">Edit</button>
-    
-    <div *ngIf="deletedContact==contact.id" style="background-color: lightpink;">
-        <p>Please reload the page to update the list of contacts</p>
-    </div>
     
     <div *ngIf="selectedContact==contact.id" class="container">
         <p> Please edit the contact. </p>
@@ -47,7 +43,7 @@
                     >
                 </div>
                 <div class="form-group">
-                    <button class="btn btn-primary" (click)="updateContact(contact,contact.id,contact.firstName,contact.lastName,contact.phone)">Update Contact</button>
+                    <button class="btn btn-primary" (click)="updateContact(contact,i)">Update Contact</button>
                     <button class="btn btn-primary" (click)="selectedContact=null">Close Edit field</button>
                 </div>
             </div>

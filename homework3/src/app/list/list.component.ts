@@ -22,10 +22,9 @@ export class ListComponent implements OnInit{
   cLastName: string;
   cPhone: string;
   cId: string;
-  show: string = '';
+
   buttonName = 'Show Edit';
-  hide: any;
-  deletedContact: string = '';
+
   public selectedContact: string = null;
 
   keys: string[] = [];
@@ -39,25 +38,7 @@ export class ListComponent implements OnInit{
     this.fetchData();
   }
 
-  toggle = {};
-  // toggle(contactId: string){
-  //   if(contactId == this.show){
-  //     this.buttonName = 'Hide Edit';
-  //   } else {
-  //     this.buttonName = 'Show Edit';
-  //   }
-
-  // }
-
-  updateContact(oldContact: ListContact,
-                oldId: string, 
-                oldFirstName: string, 
-                oldLastName: string,
-                oldPhone: string){
-    //this.delete(oldContact);
-    //if the following data points are not set then 
-    //set them to old values contained in the oldContact
-    //create a new contact
+  updateContact(oldContact: ListContact, index: number){
 
     const newContact: Contact = {
       firstName: this.cFirstName,
@@ -68,16 +49,17 @@ export class ListComponent implements OnInit{
     this.cntService.addContact(newContact).subscribe(data => {
       console.log(data);
     })
-    this.delete(oldContact.id);
+    this.delete(oldContact.id, index);
     //get rid of that shitty old contact
 
 
   }
 
-  delete(contact: string){
+  delete(contact: string, index: number){
     //add the contact and submit the data to the console for debugging
     this.cntService.deleteContact(contact).subscribe(() => {
       //reload the page and get all of the data on reload
+      this.listContacts.splice(index);
       this.fetchData();
     })
     
@@ -85,9 +67,13 @@ export class ListComponent implements OnInit{
 
   fetchData(){
     this.cntService.getContacts().subscribe(data => {
+      //reset the array of contacts if the list is reloaded or the 
+      //database is changed
+      let i: number = 0;
       this.contacts = data.contactArray;
       this.keys = data.keyArray;
-      let i: number = 0;
+      
+      i=0;
       while(i < this.contacts.length){
         const newContact: ListContact = {
           firstName: data.contactArray[i].firstName,
