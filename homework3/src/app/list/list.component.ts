@@ -53,6 +53,10 @@ export class ListComponent implements OnInit{
       console.log(data);
     })
     this.delete(oldContact.id, index);
+    this.cFirstName = '';
+    this.cLastName = '';
+    this.cMail = '';
+    this.cPhone = '';
     //get rid of that shitty old contact
 
 
@@ -73,6 +77,13 @@ export class ListComponent implements OnInit{
       //reset the array of contacts if the list is reloaded or the 
       //database is changed
       let i: number = 0;
+      this.contacts = null;
+      this.keys = null;
+      
+      while (i < this.listContacts.length){
+        this.listContacts.pop();
+      }
+
       this.contacts = data.contactArray;
       this.keys = data.keyArray;
       

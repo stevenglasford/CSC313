@@ -11,7 +11,6 @@ export class AddComponent implements OnInit {
   cFirstName: string;
   cLastName: string;
   cPhone: string;
-  cId: string;
   cMail: string;
   show: boolean = false;
 
@@ -31,6 +30,12 @@ export class AddComponent implements OnInit {
     this.cntService.addContact(newContact).subscribe(data => {
       console.log(data);
     })
+
+    //reset the data fields
+    this.cFirstName = '';
+    this.cLastName = '';
+    this.cMail = '';
+    this.cPhone = '';
     
   }
 
