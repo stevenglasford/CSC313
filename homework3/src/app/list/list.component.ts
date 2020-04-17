@@ -41,7 +41,19 @@ export class ListComponent implements OnInit{
   }
 
   updateContact(oldContact: ListContact, index: number){
-
+    if (this.cFirstName == ''){
+      this.cFirstName = oldContact.firstName;
+    }
+    if (this.cLastName == ''){
+      this.cLastName = oldContact.lastName;
+    }
+    if (this.cPhone == ''){
+      this.cPhone = oldContact.phone;
+    }
+    if (this.cMail == ''){
+      this.cMail = oldContact.mail;
+    }
+    
     const newContact: Contact = {
       firstName: this.cFirstName,
       lastName: this.cLastName,
