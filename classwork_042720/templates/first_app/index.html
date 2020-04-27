@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Welcome to Django's MVT paradigm</h1>
+    <h2>Here are the records of the Employee Table</h2>
+    <div>
+        {% if emp %}
+            <table>
+            <thead>
+                <th>Employee ID</th>
+                <th>Employee name</th>
+                <th>Department</th>
+                <th>Age</th>
+                <th>Start Date</th>
+            </thead>
+            {% for e in emp %}
+                <tr>
+                    <td>{{e.emp_id}}</td>
+                    <td>{{e.emp_name}}</td>
+                    <td>{{e.emp_department}}</td>
+                    <td>{{e.emp_age}}</td>
+                    <td>{{e.emp_start_date}}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        {% else %}
+            <p>No employee records found.</p>
+        {% endif %}
+    </div>
+    
+</body>
+</html>
