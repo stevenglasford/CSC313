@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Department</title>
+</head>
+<body>
+    <h2>Here are the records of th Department table</h2>
+    <div>
+        {% if dept %}
+            <table>
+            <thead>
+                <th>Department ID</th>
+                <th>Department name</th>
+            </thead>
+            {% for d in dept %}
+                <tr>
+                    <td>{{d.dept_id}}</td>
+                    <td>{{d.dept_name}}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        {% else %}
+            <p>No department records found.</p>
+        {% endif %}
+    </div>
+
+</body>
+</html>
